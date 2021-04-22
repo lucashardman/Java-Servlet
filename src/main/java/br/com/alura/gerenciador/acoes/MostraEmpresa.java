@@ -1,22 +1,19 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acoes;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MostraEmpresa
- */
-@WebServlet("/mostraEmpresa")
-public class MostraEmpresa extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import br.com.alura.gerenciador.model.Banco;
+import br.com.alura.gerenciador.model.Empresa;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class MostraEmpresa {
+
+	
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramId = request.getParameter("id");
 		Integer Id = Integer.valueOf(paramId);
 		
@@ -27,5 +24,4 @@ public class MostraEmpresa extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
 		rd.forward(request, response);
 	}
-
 }

@@ -2,6 +2,7 @@ package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,22 +25,31 @@ public class UnicaEntradaServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String paramAcao = request.getParameter("acao");
-		
+		String rdirect = null;
 		if (paramAcao.equals("ListaEmpresas")) {
 			ListaEmpresas acao = new ListaEmpresas();
-			acao.executa(request, response);
+			rdirect = acao.executa(request, response);
 		} else if (paramAcao.equals("RemoveEmpresa")) {
 			RemoveEmpresa acao = new RemoveEmpresa();
-			acao.executa(request, response);
+			rdirect = acao.executa(request, response);
 		} else if (paramAcao.equals("MostraEmpresa")) {
 			MostraEmpresa acao = new MostraEmpresa();
-			acao.executa(request, response);
+			rdirect = acao.executa(request, response);
 		} else if (paramAcao.equals("AlteraEmpresa")) {
 			AlteraEmpresa acao = new AlteraEmpresa();
-			acao.executa(request, response);
+			rdirect = acao.executa(request, response);
 		} else if (paramAcao.equals("NovaEmpresa")) {
 			NovaEmpresa acao = new NovaEmpresa();
-			acao.executa(request, response);
+			rdirect = acao.executa(request, response);
+		}
+		
+		String[] fwd = rdirect.split(":");
+		
+		if(fwd[0].equals("foward")) {
+			RequestDispatcher rd = request.getRequestDispatcher(fwd[1]);
+			rd.forward(request, response);
+		} else if(fwd[0].equals("redirect")){
+			response.sendRedirect(fwd[1]);
 		}
 	}
 

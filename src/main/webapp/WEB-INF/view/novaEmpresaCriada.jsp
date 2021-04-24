@@ -7,6 +7,7 @@
 		<title>Titulo</title>
 	</head>
 	<body>
+		<c:import url="logout.jsp"/>
 		<c:if test = "${not empty empresa}">
 			<p>Nova empresa: ${empresa}. </p>
 		</c:if>

@@ -11,6 +11,7 @@
 <title>Java</title>
 </head>
 <body>
+	<c:import url="logout.jsp"/>
 	<ul>
 		<c:forEach items="${empresas}" var="empresa">
 			

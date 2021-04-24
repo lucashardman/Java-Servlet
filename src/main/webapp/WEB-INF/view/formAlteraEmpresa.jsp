@@ -8,6 +8,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		<c:import url="logout.jsp"/>
 		<form action="${linkServletNovaEmpresa }" method="post">
 			Nome: <input type="text" name=nome value="${empresa.nome }"><br/>
 			Data de abertura: <input type="text" name=data value="<fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy"/>"><br/>

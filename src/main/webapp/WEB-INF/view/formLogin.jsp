@@ -7,12 +7,11 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<c:import url="logout.jsp"/>
 		<form action="${linkServletNovaEmpresa }" method="post">
-			Nome: <input type="text" name=nome><br/>
-			Data de abertura: <input type="text" name=data><br/>
+			Login: <input type="text" name=login><br/>
+			Senha: <input type="password" name=senha><br/>
 			
-			<input type="hidden" name="acao" value="NovaEmpresa"><br/>
+			<input type="hidden" name="acao" value="Login"><br/>
 			<input type="submit">
 		</form>
 	</body>
